@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02-播放器事件</title>
+  <link rel="stylesheet" href="../libs/video.js-7.6.x-dist/video-js.css">
+</head>
+<body>
+  
+  <video
+    id="my-player"
+    class="video-js"
+    mute="true"
+     data-setup='{}'
+    >
+    <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source>
+  </video>
+
+  <button id="btn">点击</button>
+
+  <script src="../libs/video.js-7.6.x-dist/video.js"></script>
+  <script>
+
+    // var player = videojs('my-player');
+    
+    //  data-setup='{}' 这个地方也可以写配置项目
+
+    // 配置
+    var options = {
+      controls: true,
+      poster: '//vjs.zencdn.net/v/oceans.png', // 视频封面图
+    };
+
+    var player = videojs('my-player', options);
+
+
+    player.on('play', function () {
+      console.log(" play ");
+    });
+
+
+    player.on('pause', function () {
+      console.log(" pause ");
+    });
+
+    player.on('error', function () {
+      console.log(" error ");
+    });
+
+    player.on('timeupdate', function () {
+      console.log(" timeupdate ");
+    });
+
+    player.on('waiting', function () {
+      console.log(" waiting ");
+    });
+
+    player.on('ended', function () {
+      console.log(" ended ");
+    });
+
+
+
+
+    document.getElementById("btn").onclick = function () {
+      
+      // 销毁播放器
+      // player.dispose();
+      // 切换地址
+      // player.src();
+      
+      // 返回页面容器的dom标签
+      // console.log(" el =  ", player.el());
+      
+      // 
+    }
+
+    setTimeout(() => {
+
+      // player.mute();
+
+      // 这样播放会报错
+      // 02-demo.html:1 Uncaught (in promise) DOMException: play() failed because the user didn't interact with the document first. https://goo.gl/xX8pDD
+      // 因为得手动播放
+      // player.play();
+    }, 1000);
+
+  </script>
+</body>
+</html>

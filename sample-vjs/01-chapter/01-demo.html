@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01-播放器-options</title>
+  <link rel="stylesheet" href="../libs/video.js-7.6.x-dist/video-js.css">
+</head>
+<body>
+  
+  <video
+    id="my-player"
+    class="video-js"
+     data-setup='{}'
+    >
+ <!--    <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source>
+    <source src="//vjs.zencdn.net/v/oceans.webm" type="video/webm"></source>
+    <source src="//vjs.zencdn.net/v/oceans.ogv" type="video/ogg"></source> -->
+
+  </video>
+
+  <script src="../libs/video.js-7.6.x-dist/video.js"></script>
+  <script>
+
+    // var player = videojs('my-player');
+    
+    //  data-setup='{}' 这个地方也可以写配置项目
+
+    // 配置
+    var options = {};
+
+    options = {
+      controls: true, // 是否显示控制条，如果在video标签里面设置了，为false时也不会显示
+      poster: '//vjs.zencdn.net/v/oceans.png', // 视频封面图
+      preload: '', // preload 属性规定是否在页面加载后载入视频。 // https://www.runoob.com/tags/att-video-preload.html
+      autoplay: false, // 自动播放
+      fluid: true, // 自适应宽度，而不是视频的宽高比
+      language: 'zh-CN', // 语言设置
+      muted: false, // 是否静音
+      techOrder:[],
+      controlBar: { // 控制条相关的
+
+        /**
+         * 下面这些是在控制条上，显示或者不显示的配置
+         */
+
+        // 播放按钮
+        // playToggle: true, // 是否显示按钮
+    
+        // 声音控制条
+        // volumePanel: false
+        
+        // 是否显示进度条
+        // progressControl: false,
+        
+        // 是否显示视频剩余时间
+        // remainingTimeDisplay: false,
+        
+        // 全屏按钮
+        // fullscreenToggle: false
+        
+        /**
+         * children 可以控制,播放器中需要的空间，以及可以根据先后位置。
+         */
+        children: [
+          {
+            name: 'playToggle' // 播放按钮
+          },
+          // { // 视频时间，但是为啥没起作用
+          //   name: 'currentTimeDisplay'
+          // },
+          {
+            name: 'progressControl' // 播放进度条
+          },
+          {
+            name: 'remainingTimeDisplay' // 视频剩余时间
+          },
+          {
+            name: 'playbackRateMenuButton',
+            playbackRates: [0.5, 1, 1.5]
+          },
+          {
+            name: 'volumePanel', // 声音控制条
+            inline: false
+          },
+
+          {
+            name: 'fullscreenToggle' // 全屏按钮
+          },
+        ]
+      },
+      sources: [
+        // {
+        //   src: '//vjs.zencdn.net/v/oceans.mp4',
+        //   type: 'video/mp4',
+        //   poster: '//vjs.zencdn.net/v/oceans.png'
+        // },
+        {
+          src: 'https://edge.ivideo.sina.com.cn/47577903202.mp4?KID=sina,viask&Expires=1656777600&ssig=fT%2FmEp1Slh&reqid='
+        }
+      ]
+    };
+
+    var player = videojs('my-player', options, function () {
+      console.log(" 初始化完成 ");
+    });
+
+  </script>
+</body>
+</html>

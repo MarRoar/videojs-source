@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>video标签</title>
+</head>
+<body>
+  
+  <p>video标签的事件和属性</p>
+  <p>稍微介绍几个，意思一下有这么个东西</p>
+
+
+  <video id="myVideo" controls>
+    <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source>
+  </video>
+
+  <script>
+    var oVideo = document.getElementById("myVideo");
+    console.log("oVideo = ", oVideo);
+
+    console.log("oVideo controller= ", oVideo.currentSrc);
+
+
+    oVideo.addEventListener('play', function () {
+      console.log("播放");
+    })
+
+  </script>
+
+</body>
+</html>
