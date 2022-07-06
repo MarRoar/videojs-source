@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05-播放器方法</title>
+  <link rel="stylesheet" href="../libs/video.js-7.6.x-dist/video-js.css">
+</head>
+<body>
+  
+  <video id="my-player" class="video-js"> </video>
+
+  <p></p>
+  <div>
+    <button id="playBtn">播放</button>
+    <button id="pauseBtn">暂停</button>
+    <button id="posterBtn">封面</button>
+    <button id="srcBtn">切换</button>
+    <button id="disposeBtn">销毁</button>
+  </div>
+
+  <script src="../libs/jquer-3.6.0.js"></script>
+  <script src="../libs/video.js-7.6.x-dist/video.js"></script>
+  <script>
+
+    // 配置
+    var options = {
+      controls: true,
+      poster: '//vjs.zencdn.net/v/oceans.png', // 视频封面图
+      sources: [
+        {
+          src: '//vjs.zencdn.net/v/oceans.mp4',
+          type: 'video/mp4',
+        },
+      ]
+    };
+
+    var player = videojs('my-player', options);
+
+
+    player.on('play', function () {
+      console.log(" play ");
+    });
+
+    player.on('pause', function () {
+      console.log(" pause ");
+    });
+
+    player.on('error', function () {
+      console.log(" error ");
+    });
+
+    player.on('timeupdate', function () {
+      console.log(" timeupdate ");
+    });
+
+    player.on('waiting', function () {
+      console.log(" waiting ");
+    });
+
+    player.on('ended', function () {
+      console.log(" ended ");
+    });
+
+    // 播放
+    $("#playBtn").on('click', function () {
+      player.play()
+    });
+
+    // 暂停
+    $("#pauseBtn").on('click', function () {
+      player.pause()
+    });
+
+    // 封面
+    $("#posterBtn").on('click', function () {
+      player.poster('https://p.ivideo.sina.com.cn/video/476/112/084/476112084.jpg')
+    });
+
+    // 切换地址
+    $("#srcBtn").on('click', function () {
+      player.src({
+        src: 'https://edge.ivideo.sina.com.cn/47611208402.mp4?KID=sina,viask&Expires=1657036800&ssig=Dre0wxnaZE&reqid=',
+        type: 'video/mp4',
+      })
+    });
+
+    // 销毁
+    $("#disposeBtn").on('click', function () {
+      player.dispose();
+    });
+
+  </script>
+</body>
+</html>

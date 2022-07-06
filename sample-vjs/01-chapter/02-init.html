@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02-初始化播放器</title>
+  <link rel="stylesheet" href="../libs/video.js-7.6.x-dist/video-js.css">
+</head>
+<body>
+  
+  <video
+    id="my-player"
+    class="video-js"
+     data-setup='{}'
+    >
+    <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source>
+  </video>
+
+  <script src="../libs/video.js-7.6.x-dist/video.js"></script>
+  <script>
+
+    // 最基本的初始化
+    // var player = videojs('my-player');
+
+    var options = {
+      controls: true,
+      poster: '//vjs.zencdn.net/v/oceans.png', // 视频封面图
+    };
+    var player = videojs('my-player', options, function () {
+      console.log("播放器初始化成功后的回调");
+    });
+
+    // videojs 函数上面挂载的 静态变量 和 静态方法
+    console.log(" videojs.options = ", videojs.options);
+    console.log(" videojs.getPlayers = ", videojs.getPlayers());
+    console.log(" videojs.browser = ", videojs.browser);
+
+  </script>
+</body>
+</html>

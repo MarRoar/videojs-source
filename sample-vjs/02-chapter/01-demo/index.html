@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>video.js整体结构</title>
+</head>
+<body>
+
+  
+  <video
+    id="my-player"
+    controls
+    class="video-js"
+    poster='//vjs.zencdn.net/v/oceans.png'
+    >
+    <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source>
+  </video>
+
+  <script src="video.js"></script>
+  <script src="tech.js"></script>
+  <script src="player.js"></script>
+
+
+  <script>
+    var options = {};
+    var player = videojs('my-player', options, function () {
+      console.log("初始化完成");
+    });
+
+
+
+    
+    // console.log(" v =", Tech);
+
+  </script>
+
+</body>
+</html>
