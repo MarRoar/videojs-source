@@ -18,12 +18,22 @@
   </video>
 
   <script src="video.js"></script>
-  <script src="tech.js"></script>
+  <script src="./tech/tech.js"></script>
+  <script src="./tech/html5.js"></script>
+  <script src="./tech/flash.js"></script>
   <script src="player.js"></script>
 
 
   <script>
-    var options = {};
+
+    // var options = {
+    //   techOrder: 'Html5'
+    // };
+    
+    var options = {
+      techOrder: 'Flash'
+    };
+
     var player = videojs('my-player', options, function () {
       console.log("初始化完成");
     });

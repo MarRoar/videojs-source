@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>evented</title>
+</head>
+<body>
+    
+  <div id="d">asdf</div>
+
+  <script src="evented.js"></script>
+  <script src="Component.js"></script>
+  <script>
+  
+  // var com = new Component();
+  // console.log("com = ", com);
+
+  // com.on('blur', function () {
+  //   console.log('on 注册了 blur 事件');
+  // })
+
+    var oDiv = document.getElementById('d');
+
+    oDiv.addEventListener('click', function () {
+      console.log(' say hello');
+    })
+
+    console.log('oDiv = ', oDiv)
+
+    // oDiv.trigger('test');
+
+  </script>
+</body>
+</html>
